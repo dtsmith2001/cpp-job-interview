@@ -1,3 +1,7 @@
+# C++ Project for Job Interview
+
+I was asked to do this project as part of a job interview in January 2017.
+
 # Instructions
 
 Download the following (big) file:
@@ -11,26 +15,24 @@ The columns of interest in this file are:
 
 Each row corresponds to a different claim. The objective is to write a command-line-based application in C++ that reads this CSV file, counts the number of claims and unique beneficiaries per provider, and exports it to another CSV file.
 
-As an example, the first 3 lines of the output my look something like:
+As an example, the first 3 lines of the output look something like:
 
 PRF_PHYSN_NPI_1,n_claims,n_beneficiaries
 7128674558,20,13
 9382129590,34,31
 
-Tip: do not forget to comment the code.
-
 # Response
 
-Build with build.sh instead of a makefile (no time for that)
+Build the program with build.sh instead of a makefile (no time for that).
 
 Cut the columns required out of the big file using
 
 ```cut -f1,13 -d',' DE1_0_2008_to_2010_Carrier_Claims_Sample_1A.csv > columns.csv```
 
-preprocessing saves time
+This preprocessing step saves time.
 
-To get unique providers (498,018): ```tail -n +2 columns.csv | cut -f2 -d',' | sort -u | wc -l```
-To get unique beneficiaries (49,278): ```tail -n +2 columns.csv | cut -f1 -d',' | sort -u | wc -l```
+- To get unique providers (498,018): ```tail -n +2 columns.csv | cut -f2 -d',' | sort -u | wc -l```
+- To get unique beneficiaries (49,278): ```tail -n +2 columns.csv | cut -f1 -d',' | sort -u | wc -l```
 
 Validate claim count with
 
@@ -40,7 +42,7 @@ and beneficiary count with
 
 ```grep 0000313693 columns.csv | cut -f1 -d',' | sort -u | wc -l```
 
-see the script ```validate.sh```
+See the script ```validate.sh``` to validate any provider id.
 
 ```
 validate.sh <provider>
