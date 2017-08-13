@@ -17,9 +17,10 @@ Each row corresponds to a different claim. The objective is to write a command-l
 
 As an example, the first 3 lines of the output look something like:
 
-PRF_PHYSN_NPI_1,n_claims,n_beneficiaries
-7128674558,20,13
-9382129590,34,31
+| PRF_PHYSN_NPI_1 | n_claims | n_beneficiaries |
+|-----------------|----------|-----------------|
+| 7128674558      | 20       | 13              |
+| 9382129590      | 34       | 31              |
 
 # Response
 
@@ -31,8 +32,8 @@ Cut the columns required out of the big file using
 
 This preprocessing step saves time.
 
-- To get unique providers (498,018): ```tail -n +2 columns.csv | cut -f2 -d',' | sort -u | wc -l```
-- To get unique beneficiaries (49,278): ```tail -n +2 columns.csv | cut -f1 -d',' | sort -u | wc -l```
+- To get the number of unique providers (498,018): ```tail -n +2 columns.csv | cut -f2 -d',' | sort -u | wc -l```
+- To get the number of unique beneficiaries (49,278): ```tail -n +2 columns.csv | cut -f1 -d',' | sort -u | wc -l```
 
 Validate claim count with
 
